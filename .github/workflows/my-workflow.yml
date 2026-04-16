@@ -15,7 +15,7 @@ on:
       - reopened
     
 jobs:
-  labdevops2:
+  install:
     runs-on: ubuntu-latest
     services:
       postgres:
