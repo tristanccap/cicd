@@ -17,6 +17,22 @@ on:
 jobs:
   install:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: "cicd_user"
+          POSTGRES_PASSWORD: "cicd_password"
+          POSTGRES_DB: "cicd_database"
+
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        
+        ports:
+          - 5432:5432
 
     steps:
     - name: Checkout repository
