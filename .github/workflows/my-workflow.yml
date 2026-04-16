@@ -14,7 +14,6 @@ jobs:
   install:
     runs-on: ubuntu-latest
 
-    if: ${{ inputs.run_tests }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -31,4 +30,5 @@ jobs:
       run: npm run build
    
     - name: Run tests
+      if: ${{ inputs.run_tests }}
       run: npm test
