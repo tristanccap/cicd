@@ -2,11 +2,19 @@ name: Manual install
 
 on:
   workflow_dispatch:
+    inputs:
+      run_tests:
+        description: "Run tests?"
+        required: true
+        default: false
+        type: boolean
+
 
 jobs:
   install:
     runs-on: ubuntu-latest
 
+    if: ${{input.run_tests}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
