@@ -21,9 +21,9 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_USER: "cicd_user"
-          POSTGRES_PASSWORD: "cicd_password"
-          POSTGRES_DB: "cicd_database"
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
 
         options: >-
           --health-cmd pg_isready
